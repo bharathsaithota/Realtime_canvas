@@ -7,7 +7,6 @@
 
   const ws = window.CollabWS;
 
-  // Resize canvas to device pixel ratio
   const ctx = canvas.getContext('2d');
   function resizeCanvas() {
     const rect = canvas.getBoundingClientRect();

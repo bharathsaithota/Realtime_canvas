@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collaborative Canvas</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">Collaborative Canvas</div>
+      <div class="room-controls">
+        <input id="nameInput" type="text" placeholder="Your name" />
+        <input id="roomInput" type="text" placeholder="Room ID" value="lobby" />
+        <button id="joinBtn">Join</button>
+      </div>
+      <div class="actions">
+        <button id="undoBtn" title="Undo (Ctrl+Z)">Undo</button>
+        <button id="redoBtn" title="Redo (Ctrl+Y)">Redo</button>
+      </div>
+    </header>
+    <main class="main">
+      <aside class="sidebar">
+        <div class="tool-group">
+          <div class="tool-title">Tool</div>
+          <div class="tool-row">
+            <button id="toolBrush" class="tool active">Brush</button>
+            <button id="toolEraser" class="tool">Eraser</button>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-title">Color</div>
+          <input id="colorPicker" type="color" value="#1f6feb" />
+        </div>
+        <div class="tool-group">
+          <div class="tool-title">Width</div>
+          <input id="widthRange" type="range" min="1" max="32" value="4" />
+          <div class="width-display"><span id="widthDisplay">4</span> px</div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-title">Online</div>
+          <ul id="onlineList" class="online-list"></ul>
+        </div>
+      </aside>
+      <section class="canvas-wrap">
+        <canvas id="canvas"></canvas>
+        <div id="cursorsLayer" class="cursors-layer"></div>
+      </section>
+    </main>
+    <footer class="bottombar">
+      <div id="status">Disconnected</div>
+      <div id="perf">—</div>
+    </footer>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./websocket.js"></script>
+  <script src="./canvas.js"></script>
+  <script src="./main.js"></script>
+  <noscript>This app requires JavaScript enabled.</noscript>
+</body>
+<style>
+</style>
+</html>
+
